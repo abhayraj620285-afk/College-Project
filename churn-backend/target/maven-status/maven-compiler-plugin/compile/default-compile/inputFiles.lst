@@ -1,0 +1,12 @@
+/Users/abhayraj/Downloads/churn-backend/src/main/java/com/churn/backend/ChurnBackendApplication.java
+/Users/abhayraj/Downloads/churn-backend/src/main/java/com/churn/backend/config/MlClientConfig.java
+/Users/abhayraj/Downloads/churn-backend/src/main/java/com/churn/backend/controller/PredictionController.java
+/Users/abhayraj/Downloads/churn-backend/src/main/java/com/churn/backend/dto/CustomerRequest.java
+/Users/abhayraj/Downloads/churn-backend/src/main/java/com/churn/backend/dto/HistoryItem.java
+/Users/abhayraj/Downloads/churn-backend/src/main/java/com/churn/backend/dto/MlResponse.java
+/Users/abhayraj/Downloads/churn-backend/src/main/java/com/churn/backend/dto/PredictionResponse.java
+/Users/abhayraj/Downloads/churn-backend/src/main/java/com/churn/backend/entity/PredictionRecord.java
+/Users/abhayraj/Downloads/churn-backend/src/main/java/com/churn/backend/exception/GlobalExceptionHandler.java
+/Users/abhayraj/Downloads/churn-backend/src/main/java/com/churn/backend/exception/MlServiceUnavailableException.java
+/Users/abhayraj/Downloads/churn-backend/src/main/java/com/churn/backend/repository/PredictionRepository.java
+/Users/abhayraj/Downloads/churn-backend/src/main/java/com/churn/backend/service/PredictionService.java
