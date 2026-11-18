@@ -1,16 +1,28 @@
 # Churn Backend (Spring Boot)
 
-Spring Boot gateway in front of the Python (FastAPI) churn model.
+Optional Spring Boot API that validates prediction requests, forwards them to the FastAPI model service, and stores prediction history in an in-memory H2 database.
 
-    Streamlit UI :8501  ->  Spring Boot :8080  ->  FastAPI model :8000
+See the [repository README](../README.md) for prerequisites and Python environment setup.
 
 ## Run
-1. Start the model service:   cd api && uvicorn main:app --reload
-2. Start this backend:        cd churn-backend && mvn spring-boot:run
-3. (optional) UI:            set API_URL in frontend/app.py to http://127.0.0.1:8080/api/v1/predict
+
+Start FastAPI first from `customer-churn-prediction\api`:
+
+```powershell
+..\.venv\Scripts\python.exe -m uvicorn main:app --reload --host 127.0.0.1 --port 8000
+```
+
+Then, from `churn-backend`, start Spring Boot:
+
+```powershell
+mvn spring-boot:run
+```
+
+The backend listens on port `8080`. The Streamlit UI currently calls FastAPI directly; it is not routed through this service.
 
 ## Endpoints
-- POST /api/v1/predict      validate + forward to model + save + return result
-- GET  /api/v1/predictions  latest saved predictions (?limit=20)
-- GET  /api/v1/stats        totals and predicted churn rate
-- GET  /api/v1/health       backend + model service status
+
+- `POST /api/v1/predict` — validate and forward a prediction, then save and return the result
+- `GET /api/v1/predictions` — latest saved predictions (`?limit=20`)
+- `GET /api/v1/stats` — prediction totals and predicted churn rate
+- `GET /api/v1/health` — backend and model-service status
