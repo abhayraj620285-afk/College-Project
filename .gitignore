@@ -1,0 +1,125 @@
+# ============================================================
+# Agent / AI Tool Files
+# ============================================================
+.fc_*.ico
+.gemini/
+.antigravity/
+.cursor/
+.aider*
+.continue/
+.copilot/
+.github/modernize/
+
+# ============================================================
+# Markdown Documentation (keep only README)
+# ============================================================
+*.md
+!README.md
+
+# ============================================================
+# OS / Windows System Files
+# ============================================================
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# ============================================================
+# Node.js / Frontend
+# ============================================================
+node_modules/
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+.parcel-cache/
+*.tgz
+.npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ============================================================
+# Python / ML / Jupyter
+# ============================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.env/
+.venv/
+ENV/
+pip-log.txt
+pip-delete-this-directory.txt
+.ipynb_checkpoints/
+*.egg-info/
+*.egg
+.eggs/
+*.pkl
+*.joblib
+*.h5
+*.hdf5
+mlruns/
+.mlflow/
+
+# ============================================================
+# Java / Maven (churn-backend)
+# ============================================================
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+.mvn/wrapper/maven-wrapper.jar
+hs_err_pid*
+replay_pid*
+
+# ============================================================
+# IDE / Editor
+# ============================================================
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.swp
+*.swo
+
+# ============================================================
+# Environment & Secrets
+# ============================================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*
+!.env.example
+*.pem
+*.key
+*.cert
+secrets.json
+
+# ============================================================
+# Logs & Temp Files
+# ============================================================
+logs/
+*.log
+*.tmp
+*.temp
+*.bak

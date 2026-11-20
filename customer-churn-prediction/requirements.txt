@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+pandas
+numpy
+joblib
+scikit-learn
+xgboost
+streamlit
+requests
+matplotlib
+seaborn
+ipykernel
