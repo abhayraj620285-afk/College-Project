@@ -142,6 +142,10 @@ async function ensurePagesBundle() {
       import ReportsPage from '../src/pages/ReportsPage.jsx';
       import SettingsPage from '../src/pages/SettingsPage.jsx';
 
+      // Landing Page & Section 04 Reveal
+      import LandingPage from '../src/pages/LandingPage.jsx';
+      import Section04Reveal from '../src/components/landing/Section04Reveal.jsx';
+
       // Shell & Common Components
       import AppShell from '../src/components/shell/AppShell.jsx';
       import Sidebar from '../src/components/shell/Sidebar.jsx';
@@ -185,6 +189,8 @@ async function ensurePagesBundle() {
         PredictionHistoryPage,
         ReportsPage,
         SettingsPage,
+        LandingPage,
+        Section04Reveal,
         AppShell,
         Sidebar,
         Topbar,
@@ -320,12 +326,26 @@ export function renderComponent(Component, props = {}) {
 }
 
 /**
+ * Renders any React component wrapped in a MemoryRouter.
+ */
+export function renderComponentWithRouter(Component, props = {}) {
+  return renderToString(
+    React.createElement(
+      MemoryRouter,
+      { initialEntries: ['/'] },
+      React.createElement(Component, props)
+    )
+  );
+}
+
+/**
  * Renders a full route page inside MemoryRouter with exact path parameters.
  * Supports /dashboard, /customers, /customers/:id, /predict, /insights,
  * /retention, /campaigns, /model-performance, /prediction-history, /reports, /settings.
  */
 export function renderRoute(initialPath = '/dashboard') {
   const {
+    LandingPage,
     DashboardPage,
     CustomersPage,
     CustomerDetailPage,
@@ -339,6 +359,15 @@ export function renderRoute(initialPath = '/dashboard') {
     SettingsPage,
     AppShell,
   } = components;
+
+  if (initialPath === '/' || initialPath === '/landing') {
+    const element = React.createElement(
+      MemoryRouter,
+      { initialEntries: [initialPath] },
+      React.createElement(LandingPage)
+    );
+    return renderToString(element);
+  }
 
   const element = React.createElement(
     MemoryRouter,

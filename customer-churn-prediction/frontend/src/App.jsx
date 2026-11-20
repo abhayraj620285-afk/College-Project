@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
-import { BrowserRouter, Routes, Route, Navigate, Link } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Outlet, Link } from 'react-router-dom'
 import AppShell from './components/shell/AppShell'
+
+// Public Editorial Landing Page
+import LandingPage from './pages/LandingPage'
 
 // 11 Core Application Route Pages
 import DashboardPage from './pages/DashboardPage'
@@ -123,16 +126,26 @@ function NotFoundPage() {
   )
 }
 
+// Layout wrapper for all platform routes framed by AppShell
+function PlatformLayout() {
+  return (
+    <AppShell>
+      <Outlet />
+    </AppShell>
+  )
+}
+
 export default function App() {
   return (
     <BrowserRouter>
       <ErrorBoundary>
-        <AppShell>
-          <Routes>
-            {/* Default redirect to /dashboard */}
-            <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        <Routes>
+          {/* Public Editorial Landing Page (Mounted outside AppShell) */}
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/landing" element={<LandingPage />} />
 
-            {/* All 11 Application Routes */}
+          {/* Core Platform Operations Suite (Preserved 100% inside AppShell) */}
+          <Route element={<PlatformLayout />}>
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/customers" element={<CustomersPage />} />
             <Route path="/customers/:id" element={<CustomerDetailPage />} />
@@ -147,8 +160,8 @@ export default function App() {
 
             {/* 404 Catch-All Route */}
             <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </AppShell>
+          </Route>
+        </Routes>
       </ErrorBoundary>
     </BrowserRouter>
   )

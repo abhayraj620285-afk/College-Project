@@ -1,7 +1,8 @@
-com\churn\backend\ChurnBackendApplication.class
 com\churn\backend\exception\MlServiceUnavailableException.class
 com\churn\backend\repository\PredictionRepository.class
 com\churn\backend\dto\HistoryItem.class
+com\churn\backend\dto\CustomerRequest.class
+com\churn\backend\ChurnBackendApplication.class
 com\churn\backend\config\MlClientConfig.class
 com\churn\backend\service\PredictionService.class
 com\churn\backend\dto\PredictionResponse.class
@@ -9,4 +10,3 @@ com\churn\backend\dto\MlResponse.class
 com\churn\backend\entity\PredictionRecord.class
 com\churn\backend\exception\GlobalExceptionHandler.class
 com\churn\backend\controller\PredictionController.class
-com\churn\backend\dto\CustomerRequest.class

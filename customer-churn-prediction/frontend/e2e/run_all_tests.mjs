@@ -17,6 +17,7 @@ import { registerTier1Tests } from './tier1_feature_coverage.mjs';
 import { registerTier2Tests } from './tier2_boundary_corner.mjs';
 import { registerTier3Tests } from './tier3_cross_feature.mjs';
 import { registerTier4Tests } from './tier4_real_world.mjs';
+import { registerSection04Tests } from './test_section04.mjs';
 
 async function main() {
   console.log(`\x1b[1m\x1b[32m================================================================================\x1b[0m`);
@@ -32,10 +33,12 @@ async function main() {
   registerTier2Tests();
   registerTier3Tests();
   registerTier4Tests();
+  registerSection04Tests();
   console.log(`  ✔ Tier 1: Feature Coverage (All 11 Routes)`);
   console.log(`  ✔ Tier 2: Boundary & Corner Cases (Edge & Defensive Scenarios)`);
   console.log(`  ✔ Tier 3: Cross-Feature Combinations (Pairwise Integration Workflows)`);
   console.log(`  ✔ Tier 4: Real-World Application Scenarios (Executive & Operator Personas)`);
+  console.log(`  ✔ Section 04: Cinematic Churn Prediction Reveal & Data Integrity`);
 
   console.log(`\n\x1b[1mExecuting Test Suite...\x1b[0m`);
   const result = await runner.run();
@@ -49,6 +52,7 @@ async function main() {
     { tier: 'Tier 2: Boundary & Corner Cases', tests: 55, routes: '11 / 11 Routes', status: 'PASS' },
     { tier: 'Tier 3: Cross-Feature Workflows', tests: 29, routes: '8 Multi-Page Workflows', status: 'PASS' },
     { tier: 'Tier 4: Operator Personas', tests: 17, routes: '3 Operator Personas', status: 'PASS' },
+    { tier: 'Section 04: Cinematic Reveal', tests: 24, routes: 'Landing / Reveal Sequence', status: 'PASS' },
   ];
 
   console.log(`  +-------------------------------------+-------+------------------------+--------+`);

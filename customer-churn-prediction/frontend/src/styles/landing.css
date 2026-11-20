@@ -1,0 +1,645 @@
+/**
+ * Section 04 & Landing Page Editorial Design System
+ * 
+ * Strict Editorial Design System Tokens:
+ * - Background:    #080A08
+ * - Accent:        #89E901
+ * - Primary Text:  #E8F0E5
+ * - Secondary Text:#899386
+ * - Surface:       #141814
+ * - Surface Card:  #111411
+ * - Border:        rgba(137, 147, 134, 0.2)
+ * - Border Accent: rgba(137, 233, 1, 0.35)
+ */
+
+:root, .landing-theme {
+  --color-landing-bg: #080A08;
+  --color-landing-accent: #89E901;
+  --color-landing-text-primary: #E8F0E5;
+  --color-landing-text-secondary: #899386;
+  --color-landing-surface: #141814;
+  --color-landing-surface-card: #111411;
+  --color-landing-border: rgba(137, 147, 134, 0.2);
+  --color-landing-border-accent: rgba(137, 233, 1, 0.35);
+
+  --landing-bg: #080A08;
+  --landing-accent: #89E901;
+  --landing-text-primary: #E8F0E5;
+  --landing-text-secondary: #899386;
+  --landing-surface: #141814;
+  --landing-surface-card: #111411;
+  --landing-border: rgba(137, 147, 134, 0.2);
+  --landing-border-accent: rgba(137, 233, 1, 0.35);
+
+  --landing-risk-high: #FF6262;
+  --landing-risk-high-subtle: rgba(255, 98, 98, 0.12);
+  --landing-risk-high-border: rgba(255, 98, 98, 0.35);
+
+  --landing-risk-med: #FFBE55;
+  --landing-risk-med-subtle: rgba(255, 190, 85, 0.12);
+  --landing-risk-med-border: rgba(255, 190, 85, 0.35);
+
+  --landing-font-display: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  --landing-font-body: 'Inter', 'DM Sans', sans-serif;
+  --landing-font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* ==========================================================================
+   Page Shell & Structural Typography
+   ========================================================================== */
+.landing-page {
+  background-color: var(--landing-bg);
+  color: var(--landing-text-primary);
+  font-family: var(--landing-font-body);
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.landing-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .landing-container {
+    padding: 0 1.25rem;
+  }
+}
+
+/* Subtle editorial dividers */
+.editorial-divider {
+  border: 0;
+  border-top: 1px solid var(--landing-border);
+  margin: 4rem 0;
+  width: 100%;
+}
+
+.editorial-divider-subtle {
+  border: 0;
+  border-top: 1px solid rgba(137, 147, 134, 0.12);
+  margin: 1.5rem 0;
+}
+
+/* Restrained technical labels */
+.technical-label {
+  font-family: var(--landing-font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--landing-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.technical-label-muted {
+  font-family: var(--landing-font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--landing-text-secondary);
+}
+
+.technical-badge {
+  font-family: var(--landing-font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  background-color: rgba(137, 233, 1, 0.1);
+  color: var(--landing-accent);
+  border: 1px solid var(--landing-border-accent);
+}
+
+.technical-badge-high {
+  background-color: var(--landing-risk-high-subtle);
+  color: var(--landing-risk-high);
+  border: 1px solid var(--landing-risk-high-border);
+}
+
+/* Editorial Headlines & Copy */
+.editorial-headline {
+  font-family: var(--landing-font-display);
+  font-size: clamp(2.25rem, 5.5vw, 4.25rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--landing-text-primary);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.editorial-subhead {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-weight: 400;
+  color: var(--landing-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Primary Editorial CTA */
+.editorial-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background-color: var(--landing-accent);
+  color: #080A08;
+  font-family: var(--landing-font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.85rem 1.75rem;
+  border-radius: 6px;
+  text-decoration: none;
+  border: 1px solid var(--landing-accent);
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.editorial-cta:hover {
+  background-color: #9bee22;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(137, 233, 1, 0.25);
+}
+
+.editorial-cta:focus-visible {
+  outline: 2px solid var(--landing-accent);
+  outline-offset: 3px;
+}
+
+.editorial-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: var(--landing-text-primary);
+  font-family: var(--landing-font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.85rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  border: 1px solid var(--landing-border);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.editorial-cta-secondary:hover {
+  border-color: var(--landing-accent);
+  background-color: rgba(137, 233, 1, 0.05);
+}
+
+/* ==========================================================================
+   Header / Navigation Bar
+   ========================================================================== */
+.landing-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(8, 10, 8, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--landing-border);
+  padding: 1rem 0;
+}
+
+.landing-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.landing-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--landing-font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--landing-text-primary);
+  text-decoration: none;
+}
+
+.landing-brand-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--landing-accent);
+  box-shadow: 0 0 8px var(--landing-accent);
+}
+
+.landing-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.landing-nav-link {
+  color: var(--landing-text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.landing-nav-link:hover {
+  color: var(--landing-accent);
+}
+
+@media (max-width: 900px) {
+  .landing-nav-links {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Section 04 Reveal Layout & Stage Structure
+   ========================================================================== */
+.section04-wrapper {
+  position: relative;
+  background-color: var(--landing-bg);
+  padding: 5rem 0 7rem 0;
+  border-top: 1px solid var(--landing-border);
+  border-bottom: 1px solid var(--landing-border);
+}
+
+.section04-header {
+  margin-bottom: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.section04-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+@media (max-width: 900px) {
+  .section04-intro-grid {
+    grid-template-columns: 1fr;
+    align-items: flex-start;
+  }
+}
+
+/* Stage Cards Common */
+.landing-card {
+  background-color: var(--landing-surface-card);
+  border: 1px solid var(--landing-border);
+  border-radius: 8px;
+  padding: 1.75rem;
+  position: relative;
+  transition: border-color 0.25s ease;
+}
+
+.landing-card:hover {
+  border-color: var(--landing-border-accent);
+}
+
+.landing-card-elevated {
+  background-color: var(--landing-surface);
+  border: 1px solid var(--landing-border);
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+/* Stage 1: Connected Signal Network */
+.stage-network-viewport {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  background-color: var(--landing-surface);
+  border: 1px solid var(--landing-border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.network-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.network-connection-line {
+  stroke: rgba(137, 147, 134, 0.2);
+  stroke-width: 1;
+}
+
+.network-connection-active {
+  stroke: rgba(137, 233, 1, 0.45);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+}
+
+.network-node {
+  transition: r 0.3s ease, fill 0.3s ease;
+}
+
+/* Stage 2: Convergence Highlight Node */
+.convergence-pulse {
+  animation: pulse-ring 2.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  transform-origin: center;
+}
+
+@keyframes pulse-ring {
+  0% {
+    r: 10;
+    opacity: 0.9;
+  }
+  50% {
+    r: 26;
+    opacity: 0.2;
+  }
+  100% {
+    r: 34;
+    opacity: 0;
+  }
+}
+
+/* Staged Stacking Grid for Stages 3, 4, 5 */
+.stages-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 1024px) {
+  .stages-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Data Table / Field Grid in Stage 3 */
+.telco-fields-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+@media (max-width: 600px) {
+  .telco-fields-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.telco-field-cell {
+  background-color: rgba(20, 24, 20, 0.6);
+  border: 1px solid rgba(137, 147, 134, 0.15);
+  border-radius: 6px;
+  padding: 0.75rem 0.9rem;
+}
+
+.telco-field-label {
+  font-family: var(--landing-font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  color: var(--landing-text-secondary);
+  display: block;
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.08em;
+}
+
+.telco-field-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--landing-text-primary);
+  font-family: var(--landing-font-body);
+}
+
+.telco-field-value-accent {
+  color: var(--landing-accent);
+}
+
+/* Stage 4: Prediction KPI Score */
+.score-display-wrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.score-number {
+  font-family: var(--landing-font-display);
+  font-size: clamp(3.5rem, 7vw, 4.75rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--landing-risk-high);
+  font-variant-numeric: tabular-nums;
+}
+
+.score-meter-track {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background-color: rgba(137, 147, 134, 0.18);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 1.25rem 0 0.5rem 0;
+  display: flex;
+}
+
+.meter-zone-low {
+  width: 40%;
+  background-color: rgba(137, 233, 1, 0.2);
+}
+
+.meter-zone-med {
+  width: 30%;
+  background-color: rgba(255, 190, 85, 0.2);
+}
+
+.meter-zone-high {
+  width: 30%;
+  background-color: rgba(255, 98, 98, 0.2);
+}
+
+.meter-indicator-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--landing-risk-high);
+  border-radius: 4px;
+}
+
+/* Stage 5: Contributing Drivers */
+.drivers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.driver-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: rgba(20, 24, 20, 0.5);
+  border: 1px solid rgba(137, 147, 134, 0.12);
+  border-radius: 6px;
+}
+
+.driver-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--landing-text-primary);
+}
+
+.driver-impact {
+  font-family: var(--landing-font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--landing-risk-high);
+}
+
+/* Stage 6: Product Preview Frame */
+.product-preview-frame {
+  background-color: var(--landing-surface);
+  border: 1px solid var(--landing-border);
+  border-radius: 12px;
+  padding: 2.25rem;
+  margin-top: 2rem;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+  .product-preview-frame {
+    padding: 1.25rem;
+  }
+}
+
+.preview-browser-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--landing-border);
+}
+
+.browser-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.browser-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(137, 147, 134, 0.25);
+}
+
+.browser-address {
+  font-family: var(--landing-font-mono);
+  font-size: 0.72rem;
+  color: var(--landing-text-secondary);
+  background-color: var(--landing-surface-card);
+  padding: 0.25rem 1rem;
+  border-radius: 4px;
+  border: 1px solid var(--landing-border);
+}
+
+/* Interactive Playground Controls in Preview */
+.preview-controls-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1.75rem;
+}
+
+@media (max-width: 960px) {
+  .preview-controls-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.interactive-control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.interactive-label {
+  font-size: 0.825rem;
+  font-weight: 500;
+  color: var(--landing-text-secondary);
+  display: flex;
+  justify-content: space-between;
+}
+
+.interactive-slider {
+  width: 100%;
+  accent-color: var(--landing-accent);
+  background: var(--landing-surface-card);
+  cursor: pointer;
+  height: 6px;
+  border-radius: 3px;
+}
+
+.interactive-select {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  background-color: var(--landing-surface-card);
+  color: var(--landing-text-primary);
+  border: 1px solid var(--landing-border);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-family: var(--landing-font-body);
+  outline: none;
+}
+
+.interactive-select:focus {
+  border-color: var(--landing-accent);
+}
+
+/* ==========================================================================
+   Reduced Motion Accessibility (Mandatory)
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .convergence-pulse {
+    animation: none !important;
+  }
+
+  .landing-card,
+  .stage-network-viewport,
+  .stages-dashboard-grid,
+  .product-preview-frame,
+  .reveal-element {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    visibility: visible !important;
+  }
+}

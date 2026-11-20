@@ -10,6 +10,7 @@
     "test:e2e": "node e2e/run_all_tests.mjs"
   },
   "dependencies": {
+    "gsap": "^3.15.1",
     "lucide-react": "^1.76.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
