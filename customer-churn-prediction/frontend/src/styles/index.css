@@ -1,0 +1,358 @@
+@import './tokens.css';
+
+/* ==========================================================================
+   CSS Reset & Box Model
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  color-scheme: dark;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--color-canvas-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Accessible Focus Ring (WCAG 2.1 AA / AAA Compliance)
+   ========================================================================== */
+:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Skip to Content link for keyboard accessibility */
+.skip-link {
+  position: absolute;
+  top: -9999px;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-kiwi);
+  color: var(--color-text-on-kiwi);
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  box-shadow: var(--shadow-lg);
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ==========================================================================
+   Typography Primitives
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--color-text-primary);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+h1 {
+  font-size: var(--font-size-display-2);
+  line-height: var(--line-height-display-2);
+}
+
+h2 {
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-h1);
+}
+
+h3 {
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-h2);
+}
+
+p {
+  color: var(--color-text-secondary);
+}
+
+code, pre, kbd, samp {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-mono);
+}
+
+.font-tabular {
+  font-family: var(--font-kpi);
+  font-variant-numeric: var(--font-tabular-nums);
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--font-size-micro);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-kiwi);
+}
+
+/* ==========================================================================
+   Interactive Elements & Form Resets
+   ========================================================================== */
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+button:disabled, input:disabled, select:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   Accessible Dark Custom Scrollbars
+   ========================================================================== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface-subtle);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-highlight);
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-strong);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-surface-highlight) var(--color-surface-subtle);
+}
+
+/* ==========================================================================
+   Shared Component & Layout Utility Classes
+   ========================================================================== */
+.card {
+  background: var(--color-surface-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.card:hover {
+  border-color: var(--color-border-default);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  background: var(--color-kiwi);
+  color: var(--color-text-on-kiwi);
+  font-weight: 600;
+  font-size: var(--font-size-body);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--color-kiwi-hover);
+  box-shadow: var(--color-kiwi-glow);
+}
+
+.btn-primary:active:not(:disabled) {
+  background: var(--color-kiwi-pressed);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  background: var(--color-surface-highlight);
+  color: var(--color-text-primary);
+  font-weight: 500;
+  font-size: var(--font-size-body);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-default);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--color-surface-elevated);
+  border-color: var(--color-border-strong);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  font-size: var(--font-size-body);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-md);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  color: var(--color-text-primary);
+  background: var(--color-surface-highlight);
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 2px 8px;
+  font-size: var(--font-size-micro);
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.badge-risk-high {
+  background: var(--color-risk-high-subtle);
+  color: var(--color-risk-high);
+  border: 1px solid var(--color-risk-high-border);
+}
+
+.badge-risk-med {
+  background: var(--color-risk-medium-subtle);
+  color: var(--color-risk-medium);
+  border: 1px solid var(--color-risk-medium-border);
+}
+
+.badge-risk-low {
+  background: var(--color-risk-low-subtle);
+  color: var(--color-risk-low);
+  border: 1px solid var(--color-risk-low-border);
+}
+
+.badge-info {
+  background: var(--color-status-info-subtle);
+  color: var(--color-status-info);
+  border: 1px solid var(--color-status-info-border);
+}
+
+/* ==========================================================================
+   Page Layout & Header Primitives
+   ========================================================================== */
+.page-container {
+  padding: var(--space-6);
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.page-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.page-header-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.page-header-description {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-body);
+  max-width: 720px;
+}
+
+.page-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+/* Notice Banner (for Ephemeral Storage / Planning Only) */
+.notice-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  border: 1px solid transparent;
+}
+
+.notice-banner.info {
+  background: var(--color-status-info-subtle);
+  border-color: var(--color-status-info-border);
+  color: var(--color-text-primary);
+}
+
+.notice-banner.warning {
+  background: var(--color-risk-medium-subtle);
+  border-color: var(--color-risk-medium-border);
+  color: var(--color-text-primary);
+}
+
+/* ==========================================================================
+   Reduced Motion Accessibility
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
