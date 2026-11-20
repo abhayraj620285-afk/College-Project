@@ -11,6 +11,7 @@ import {
   Sparkles,
 } from 'lucide-react'
 import Section04Reveal from '../components/landing/Section04Reveal'
+import Section01Hero from '../components/landing/Section01Hero'
 
 export default function LandingPage() {
   return (
@@ -68,83 +69,9 @@ export default function LandingPage() {
 
       <main className="landing-content">
         {/* ==================================================================
-            SECTION 01 — Executive Overview & Platform Mission
+            SECTION 01 — The Monument (Hero Editorial Composition)
             ================================================================== */}
-        <section id="section-01" className="landing-container" style={{ padding: '5rem 2rem 4rem 2rem' }}>
-          <div style={{ maxWidth: '840px' }}>
-            <span className="technical-label">SECTION 01 / PLATFORM INTELLIGENCE</span>
-            <h1
-              className="editorial-headline"
-              style={{ margin: '1rem 0 1.5rem 0', fontSize: 'clamp(2.5rem, 6vw, 4.75rem)' }}
-            >
-              PREDICTIVE CHURN INTELLIGENCE FOR TELECOM.
-            </h1>
-            <p className="editorial-subhead" style={{ marginBottom: '2.5rem' }}>
-              Retention Studio models 19 multi-dimensional subscriber behaviors to forecast attrition risk, explain decisive feature drivers, and automate precision retention interventions before cancellation occurs.
-            </p>
-
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.25rem', alignItems: 'center' }}>
-              <a href="#section-04" className="editorial-cta">
-                View Churn Prediction Reveal <ArrowRight size={16} />
-              </a>
-              <Link to="/dashboard" className="editorial-cta-secondary">
-                Explore Enterprise Workspace
-              </Link>
-            </div>
-          </div>
-
-          {/* Key Platform Ground-Truth Metrics */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-              gap: '1.25rem',
-              marginTop: '4rem',
-              paddingTop: '2.5rem',
-              borderTop: '1px solid var(--landing-border)',
-            }}
-          >
-            <div>
-              <span className="technical-label-muted">Subscriber Base</span>
-              <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--landing-text-primary)', fontFamily: 'var(--landing-font-display)' }}>
-                7,043
-              </div>
-              <span style={{ fontSize: '0.8rem', color: 'var(--landing-text-secondary)' }}>
-                Verified IBM Telco Dataset
-              </span>
-            </div>
-
-            <div>
-              <span className="technical-label-muted">Holdout ROC-AUC</span>
-              <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--landing-accent)', fontFamily: 'var(--landing-font-display)' }}>
-                0.8417
-              </div>
-              <span style={{ fontSize: '0.8rem', color: 'var(--landing-text-secondary)' }}>
-                Balanced Logistic Regression
-              </span>
-            </div>
-
-            <div>
-              <span className="technical-label-muted">Behavioral Features</span>
-              <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--landing-text-primary)', fontFamily: 'var(--landing-font-display)' }}>
-                19 Features
-              </div>
-              <span style={{ fontSize: '0.8rem', color: 'var(--landing-text-secondary)' }}>
-                Contract, billing & services
-              </span>
-            </div>
-
-            <div>
-              <span className="technical-label-muted">Inference Latency</span>
-              <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--landing-text-primary)', fontFamily: 'var(--landing-font-display)' }}>
-                &lt; 5 ms
-              </div>
-              <span style={{ fontSize: '0.8rem', color: 'var(--landing-text-secondary)' }}>
-                Edge & local fallback engine
-              </span>
-            </div>
-          </div>
-        </section>
+        <Section01Hero />
 
         <hr className="editorial-divider" />
 

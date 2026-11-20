@@ -268,6 +268,349 @@
 }
 
 /* ==========================================================================
+   Section 01 — The Monument (Hero Composition)
+   ========================================================================== */
+.hero-monument {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 64px);
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.hero-ambient-glow {
+  position: absolute;
+  top: 25%;
+  left: 15%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(137, 233, 1, 0.04) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-sculpture-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 58%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.hero-image-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.hero-image-frame picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-sculpture-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+  display: block;
+  filter: contrast(1.02) brightness(1.0);
+  user-select: none;
+}
+
+.hero-horizontal-beam {
+  position: absolute;
+  top: 28.5%;
+  left: 14%;
+  right: -20%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(137, 233, 1, 0.95) 0%, rgba(137, 233, 1, 0.45) 50%, transparent 100%);
+  box-shadow: 0 0 16px 2px rgba(137, 233, 1, 0.5), 0 0 36px 6px rgba(137, 233, 1, 0.2);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.hero-vignette-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent 30%, rgba(0, 0, 0, 0.75) 60%, #000000 92%),
+              linear-gradient(to bottom, #000000 0%, transparent 12%, transparent 85%, #080A08 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-content-container {
+  position: relative;
+  z-index: 4;
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 6rem 2.5rem 5rem 2.5rem;
+  display: flex;
+  justify-content: flex-end;
+  box-sizing: border-box;
+}
+
+.hero-editorial-column {
+  max-width: 580px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--landing-font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--landing-accent);
+  text-transform: uppercase;
+}
+
+.hero-eyebrow-pip {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--landing-accent);
+  box-shadow: 0 0 8px var(--landing-accent);
+}
+
+.hero-eyebrow-divider {
+  color: rgba(137, 147, 134, 0.4);
+}
+
+.hero-eyebrow-sub {
+  color: var(--landing-text-secondary);
+  font-weight: 500;
+}
+
+.hero-headline {
+  font-family: var(--landing-font-display);
+  font-size: clamp(2.75rem, 5.2vw, 4.5rem);
+  font-weight: 850;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  color: var(--landing-text-primary);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.hero-headline-accent {
+  color: var(--landing-accent);
+  text-shadow: 0 0 32px rgba(137, 233, 1, 0.25);
+}
+
+.hero-subhead {
+  font-family: var(--landing-font-body);
+  font-size: clamp(1.05rem, 1.35vw, 1.2rem);
+  font-weight: 400;
+  color: var(--landing-text-secondary);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  padding-top: 0.5rem;
+}
+
+.hero-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background-color: var(--landing-accent);
+  color: #050705;
+  font-family: var(--landing-font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.9rem 1.85rem;
+  border-radius: 4px;
+  text-decoration: none;
+  border: 1px solid var(--landing-accent);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-btn-primary:hover {
+  background-color: #9bee22;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(137, 233, 1, 0.3);
+}
+
+.hero-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: var(--landing-text-primary);
+  font-family: var(--landing-font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.9rem 1.65rem;
+  border-radius: 4px;
+  text-decoration: none;
+  border: 1px solid rgba(137, 147, 134, 0.25);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.hero-btn-secondary:hover {
+  border-color: var(--landing-accent);
+  background-color: rgba(137, 233, 1, 0.05);
+}
+
+.hero-telemetry-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--landing-border);
+}
+
+.telemetry-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.telemetry-label {
+  font-family: var(--landing-font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--landing-text-secondary);
+  text-transform: uppercase;
+}
+
+.telemetry-value {
+  font-family: var(--landing-font-mono);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--landing-text-primary);
+  line-height: 1.1;
+}
+
+.telemetry-value.accent {
+  color: var(--landing-accent);
+}
+
+.telemetry-sub {
+  font-size: 0.75rem;
+  color: var(--landing-text-secondary);
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.scroll-text {
+  font-family: var(--landing-font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: rgba(137, 147, 134, 0.6);
+  text-transform: uppercase;
+}
+
+.scroll-line {
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(137, 233, 1, 0.5), transparent);
+}
+
+/* Tablet & Mobile Hero Responsiveness */
+@media (max-width: 1024px) {
+  .hero-monument {
+    flex-direction: column;
+    min-height: auto;
+    padding-top: 1rem;
+  }
+
+  .hero-sculpture-wrapper {
+    position: relative;
+    width: 100%;
+    height: 52vh;
+    min-height: 360px;
+  }
+
+  .hero-sculpture-image {
+    object-position: center top;
+  }
+
+  .hero-vignette-overlay {
+    background: linear-gradient(to bottom, transparent 40%, rgba(0, 0, 0, 0.85) 75%, #000000 100%),
+                linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, transparent 20%, transparent 80%, rgba(0, 0, 0, 0.4) 100%);
+  }
+
+  .hero-content-container {
+    padding: 1.5rem 2rem 4rem 2rem;
+    justify-content: flex-start;
+  }
+
+  .hero-editorial-column {
+    max-width: 100%;
+  }
+
+  .hero-scroll-indicator {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-sculpture-wrapper {
+    height: 42vh;
+    min-height: 280px;
+  }
+
+  .hero-content-container {
+    padding: 1.25rem 1.25rem 3.5rem 1.25rem;
+  }
+
+  .hero-headline {
+    font-size: 2.35rem;
+  }
+
+  .hero-telemetry-strip {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-btn-primary,
+  .hero-btn-secondary {
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
    Section 04 Reveal Layout & Stage Structure
    ========================================================================== */
 .section04-wrapper {
